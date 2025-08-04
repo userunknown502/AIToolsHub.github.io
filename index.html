@@ -1,77 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Tools Hub: Discover AI tools, earning guides, and smart strategies to grow online income." />
   <title>AI Tools Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Tools Hub — Discover AI tools, step-by-step earning guides, and smart strategies to grow online income." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header / Hero Section -->
-  <header class="hero">
-    <div class="container">
-      <h1>AI Tools Hub</h1>
-      <p>Your shortcut to learning and earning with AI.</p>
-      <a href="#guides" class="btn">Get Started</a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-mark">🤖</span>
+        <span class="logo-text">AI Tools Hub</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#guides">Guides</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact" class="btn-small">Contact</a>
+      </div>
+      <div class="mobile-toggle" onclick="toggleMenu()">☰</div>
     </div>
+  </nav>
+
+  <!-- Hero -->
   <header class="hero">
-  <div class="container">
-    <img src="banner.jpeg" alt="AI Tools Hub Banner" class="banner-img" />
-    <h1>AI Tools Hub</h1>
-    <p>Your shortcut to learning and earning with AI.</p>
-    <a href="#guides" class="btn">Get Started</a>
-  </div>
-</header>
-  <!-- About Section -->
-  <section class="container card">
-    <h2>About</h2>
-    <p>AI Tools Hub helps you explore practical AI tools, follow step-by-step guides, and start earning online. No complicated jargon — just clear actions you can take today.</p>
+    <div class="overlay"></div>
+    <div class="hero-content container">
+      <div class="text">
+        <h1>AI Tools Hub</h1>
+        <p>Your shortcut to learning and earning with AI — fast, smart & practical.</p>
+        <div class="actions">
+          <a href="#guides" class="btn">Get Started</a>
+          <a href="#resources" class="btn-outline">Free Resources</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="banner.jpeg" alt="AI Tools Hub Banner" loading="lazy" />
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="section container">
+    <div class="section-inner">
+      <div class="section-text">
+        <h2>About AI Tools Hub</h2>
+        <p>We simplify the power of AI so beginners and hustlers can start earning online today. Find curated tools, step-by-step guides, and real actionable ideas—all in one place.</p>
+      </div>
+      <div class="section-stats">
+        <div class="stat">
+          <strong>3+</strong>
+          <span>Core Guides</span>
+        </div>
+        <div class="stat">
+          <strong>10+</strong>
+          <span>Recommended Tools</span>
+        </div>
+        <div class="stat">
+          <strong>0$</strong>
+          <span>Start-up Cost</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Guides Section -->
-  <section id="guides" class="container">
-    <h2>Popular Guides</h2>
+  <!-- Guides -->
+  <section id="guides" class="section container">
+    <h2 class="section-title">Popular Guides</h2>
     <div class="cards-grid">
       <div class="card">
-        <h3>Freelancing with AI</h3>
-        <p>Learn how to start freelancing using AI tools and boost your income.</p>
-        <a href="#">Read More</a>
+        <div class="card-header">
+          <span class="tag">Freelancing</span>
+        </div>
+        <h3>Start Freelancing with AI</h3>
+        <p>Step-by-step process to use AI tools to deliver services and get paid online even as a beginner.</p>
+        <a href="#" class="read-more">Read More →</a>
       </div>
       <div class="card">
-        <h3>Top Free AI Tools</h3>
-        <p>Discover the best free AI tools you can use today.</p>
-        <a href="#">Read More</a>
+        <div class="card-header">
+          <span class="tag">Tools</span>
+        </div>
+        <h3>Top Free AI Tools (2025)</h3>
+        <p>Discover the best no-cost AI platforms and how to use them to create value or content fast.</p>
+        <a href="#" class="read-more">Read More →</a>
       </div>
       <div class="card">
+        <div class="card-header">
+          <span class="tag">Affiliate</span>
+        </div>
         <h3>Affiliate Marketing with AI</h3>
-        <p>Step-by-step guide to making money by promoting AI tools.</p>
-        <a href="#">Read More</a>
+        <p>Use AI to promote tools, generate content, and build income funnels without heavy investment.</p>
+        <a href="#" class="read-more">Read More →</a>
       </div>
     </div>
   </section>
 
-  <!-- Resources Section -->
-  <section class="container card">
-    <h2>Resources</h2>
-    <ul>
-      <li>AI Content Creation Tools</li>
-      <li>AI Image Generators</li>
-      <li>SEO Keyword Planners</li>
-      <li>Affiliate Networks</li>
-    </ul>
+  <!-- Resources -->
+  <section id="resources" class="section container">
+    <h2 class="section-title">Key Resources</h2>
+    <div class="resource-list">
+      <div class="resource">
+        <h4>ChatGPT</h4>
+        <p>Content generation, idea brainstorming, SEO titles, and scripts.</p>
+      </div>
+      <div class="resource">
+        <h4>AI Image Generators</h4>
+        <p>Create banners, logos, thumbnails using tools like Leonardo AI.</p>
+      </div>
+      <div class="resource">
+        <h4>SEO Planning</h4>
+        <p>Find keywords and write optimized articles to drive traffic.</p>
+      </div>
+      <div class="resource">
+        <h4>Affiliate Networks</h4>
+        <p>Monetize recommendations with referral/affiliate links.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="container card">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:example@email.com">example@email.com</a></p>
-    <p>WhatsApp: <a href="https://wa.me/923xxxxxxxxx" target="_blank">Chat Now</a></p>
+  <!-- Contact -->
+  <section id="contact" class="section container">
+    <div class="contact-box">
+      <div class="contact-text">
+        <h2>Get In Touch</h2>
+        <p>Have questions or want to collaborate? Reach out and let's build something valuable together.</p>
+      </div>
+      <div class="contact-details">
+        <p>Email: <a href="mailto:example@email.com">example@email.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/923xxxxxxxxx" target="_blank">Chat Now</a></p>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2025 AI Tools Hub. All rights reserved.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="brand">
+          <span class="logo-mark">🤖</span> AI Tools Hub
+        </div>
+        <div class="small-text">
+          © 2025 AI Tools Hub. All rights reserved.
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      links.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
