@@ -2,133 +2,209 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Tools Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Tools Hub — Discover AI tools, earning guides, and smart strategies to grow online income." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f4f7ff;
-      --card: rgba(255, 255, 255, 0.65);
-      --text: #1f2d3a;
-      --accent: #6c63ff;
-      --secondary: #00c6ff;
-      --radius: 20px;
+      --primary: #6366f1;
+      --secondary: #0ea5e9;
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --radius: 16px;
+      --shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      --glass: rgba(255, 255, 255, 0.2);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, var(--accent), var(--secondary));
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      min-height: 100vh;
-      padding: 0;
-      margin: 0;
+      scroll-behavior: smooth;
     }
 
     header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 80px 20px 60px;
       text-align: center;
-      padding: 60px 20px 30px;
+      position: relative;
+      overflow: hidden;
     }
 
-    header h1 {
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.1), transparent);
+    }
+
+    .hero h1 {
       font-size: 3rem;
-      color: white;
       font-weight: 800;
     }
 
-    header p {
+    .hero p {
       font-size: 1.2rem;
-      color: #ffffffcc;
-      margin-top: 12px;
+      margin-top: 14px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .banner {
-      max-width: 800px;
-      margin: 40px auto;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-    }
-
-    .banner img {
+    .hero img {
       width: 100%;
-      display: block;
+      max-width: 420px;
+      margin-top: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
-    .section {
-      padding: 50px 20px;
-      max-width: 1100px;
+    nav {
+      background: white;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    nav .links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    nav .links a:hover {
+      color: var(--primary);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
       margin: auto;
     }
 
-    .card-grid {
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
       margin-top: 30px;
     }
 
     .card {
-      background: var(--card);
-      backdrop-filter: blur(12px);
+      background: white;
+      padding: 20px;
       border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow);
       transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
     }
 
     .card h3 {
-      margin-bottom: 10px;
-      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
     }
 
     .card p {
       font-size: 0.95rem;
-      color: #333;
+      color: var(--muted);
+    }
+
+    .contact {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .contact a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
     }
 
     footer {
       text-align: center;
-      padding: 40px 20px 20px;
+      padding: 30px 20px;
+      background: var(--text);
       color: white;
-      font-size: 0.9rem;
       margin-top: 60px;
     }
 
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>AI Tools Hub</h1>
-    <p>Learn & Earn with Next-Gen AI — Fast, Smart & Free</p>
+  <nav>
+    <div class="logo">🤖 AI Tools Hub</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#guides">Guides</a>
+      <a href="#resources">Resources</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <div class="banner">
-      <img src="banner.jpeg" alt="AI Tools Banner" />
+  <header>
+    <div class="hero">
+      <h1>AI Tools Hub</h1>
+      <p>Your shortcut to learning and earning with AI — fast, smart & practical.</p>
+      <img src="banner.jpeg" alt="AI Tools Hub Banner" />
     </div>
   </header>
 
-  <section class="section">
-    <h2 style="text-align:center; font-size:2rem; color:white;">Popular Guides</h2>
-    <div class="card-grid">
+  <section id="about">
+    <h2>About AI Tools Hub</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">We simplify the power of AI so beginners and hustlers can start earning online today. Find curated tools, step-by-step guides, and real actionable ideas — all in one place.</p>
+  </section>
+
+  <section id="guides">
+    <h2>Popular Guides</h2>
+    <div class="cards">
       <div class="card">
         <h3>Start Freelancing with AI</h3>
-        <p>Step-by-step process to use AI tools to deliver services and get paid online as a beginner.</p>
+        <p>Step-by-step process to use AI tools to deliver services and get paid online even as a beginner.</p>
       </div>
       <div class="card">
         <h3>Top Free AI Tools (2025)</h3>
@@ -141,8 +217,38 @@
     </div>
   </section>
 
+  <section id="resources">
+    <h2>Key Resources</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>ChatGPT</h3>
+        <p>Content generation, idea brainstorming, SEO titles, and scripts.</p>
+      </div>
+      <div class="card">
+        <h3>AI Image Generators</h3>
+        <p>Create banners, logos, thumbnails using tools like Leonardo AI.</p>
+      </div>
+      <div class="card">
+        <h3>SEO Planning</h3>
+        <p>Find keywords and write optimized articles to drive traffic.</p>
+      </div>
+      <div class="card">
+        <h3>Affiliate Networks</h3>
+        <p>Monetize recommendations with referral/affiliate links.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Get In Touch</h2>
+      <p>Email: <a href="mailto:battlecheema001@email.com">battlecheema001@email.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/923006668739" target="_blank">Chat Now</a></p>
+    </div>
+  </section>
+
   <footer>
-    © 2025 AI Tools Hub. All rights reserved.
+    <p>© 2025 AI Tools Hub. All rights reserved.</p>
   </footer>
 
 </body>
