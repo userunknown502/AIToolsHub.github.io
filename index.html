@@ -1,448 +1,232 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Tools Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Tools Hub — Discover AI tools, step-by-step earning guides, and smart strategies to grow online income." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --gradient1: #6c63ff;
       --gradient2: #00c6ff;
-      --dark: #1f2d3a;
-      --light: #f5f8fc;
-      --radius: 12px;
-      --shadow: 0 25px 50px -12px rgba(31,41,55,0.25);
-      --transition: .35s cubic-bezier(.4,.2,.2,1);
-      --text: #2f3e52;
-      --muted: #6b7a92;
+      --bg-light: #f9f9fc;
+      --bg-dark: #121212;
+      --text-light: #1f1f1f;
+      --text-dark: #f0f0f0;
+      --glass: rgba(255, 255, 255, 0.1);
     }
-    * { box-sizing: border-box; }
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Inter', system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-      background: var(--light);
-      color: var(--text);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
+      padding: 0;
+    }
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.5s, color 0.5s;
+    }
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
     }
     .container {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: auto;
-      padding: 0 18px;
+      padding: 24px;
     }
-    /* Navigation */
-    .nav {
-      background: white;
-      padding: 12px 0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 8px 30px rgba(31,41,55,0.04);
-    }
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    .logo-mark { font-size: 1.4rem; }
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      position: relative;
-    }
-    .nav-links a:hover { color: var(--gradient1); }
-    .btn-small {
-      padding: 8px 14px;
-      background: var(--gradient1);
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .mobile-toggle {
-      display: none;
-      cursor: pointer;
-      font-size: 1.4rem;
-    }
-    @media (max-width: 900px) {
-      .nav-links { display: none; width: 100%; flex-direction: column; gap: 12px; margin-top: 10px; }
-      .nav-links.active { display: flex; }
-      .mobile-toggle { display: block; }
-    }
-    /* Hero */
-    .hero {
-      position: relative;
-      padding: 80px 20px 60px;
+    header {
+      padding: 40px 24px;
       background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
       color: white;
-      overflow: hidden;
-      border-radius: 0 0 40px 40px;
-      margin-bottom: 40px;
-    }
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(31,41,55,.25);
-      mix-blend-mode: multiply;
-    }
-    .hero-content {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-    .hero .text { flex: 1 1 400px; }
-    .hero h1 {
-      font-size: 2.8rem;
-      margin: 0;
-      line-height: 1.1;
-    }
-    .hero p {
-      font-size: 1.125rem;
-      margin: 15px 0 20px;
-    }
-    .actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
-      background: white;
-      color: var(--gradient1);
-      font-weight: 700;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 25px 50px -12px rgba(255,255,255,0.3);
-      transition: var(--transition);
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-outline {
-      display: inline-block;
-      padding: 14px 30px;
-      border: 2px solid white;
-      color: white;
-      font-weight: 600;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.1); }
-    .hero-image {
-      flex: 1 1 320px;
-      min-width: 280px;
+      border-radius: 20px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-image img {
-      width: 100%;
+    header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.1), transparent 70%);
+      transform: rotate(30deg);
+      z-index: 0;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      z-index: 1;
+      position: relative;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin-top: 10px;
+      z-index: 1;
+      position: relative;
+    }
+    .glass-section {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-radius: 16px;
-      box-shadow: 0 35px 60px rgba(0,0,0,0.15);
-      object-fit: cover;
+      padding: 32px;
+      margin: 40px 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
     }
-    /* Section */
-    .section {
-      padding: 60px 0 30px;
+    .glass-section:hover {
+      transform: translateY(-5px);
     }
     .section-title {
       font-size: 2rem;
-      margin-bottom: 18px;
-      position: relative;
+      font-weight: 700;
+      margin-bottom: 20px;
     }
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 70px;
-      height: 4px;
-      background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
-      border-radius: 2px;
-      margin-top: 6px;
-    }
-    .section-inner {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .section-text { flex: 2 1 400px; }
-    .section-stats {
-      flex: 1 1 280px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    .stat {
-      background: white;
-      padding: 14px 16px;
-      border-radius: 10px;
-      box-shadow: 0 18px 50px rgba(31,41,55,0.07);
-    }
-    .stat strong { display: block; font-size: 1.3rem; }
-    .stat span { font-size: 0.85rem; color: var(--muted); }
-    .cards-grid {
+    .card-grid {
       display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      margin-top: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
     .card {
       background: white;
-      border-radius: 14px;
-      padding: 22px 18px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 25px 60px rgba(31,41,55,0.08);
-      transition: var(--transition);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s, background 0.3s, color 0.3s;
     }
-    .card:hover { transform: translateY(-4px); }
-    .card-header .tag {
+    body.dark .card {
+      background: #1c1c1c;
+      color: white;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
       background: var(--gradient1);
       color: white;
-      padding: 6px 14px;
+      font-size: 0.75rem;
       border-radius: 999px;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin-bottom: 8px;
     }
-    .card h3 { margin: 12px 0 8px; }
-    .card p { margin: 0 0 14px; font-size: 0.95rem; }
-    .read-more {
-      text-decoration: none;
-      font-weight: 600;
-      color: var(--gradient2);
-    }
-    .resource-list {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      margin-top: 16px;
-    }
-    .resource {
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
       background: white;
-      padding: 18px 16px;
-      border-radius: 12px;
-      box-shadow: 0 20px 55px rgba(31,41,55,0.06);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: background 0.3s;
     }
-    .resource h4 { margin: 0 0 6px; }
-    .resource p { margin: 0; font-size: 0.9rem; color: var(--muted); }
-    .contact-box {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      background: white;
-      padding: 28px 24px;
-      border-radius: 14px;
-      box-shadow: 0 25px 60px rgba(31,41,55,0.07);
-      margin-top: 10px;
-    }
-    .contact-text { flex: 2 1 360px; }
-    .contact-details { flex: 1 1 240px; }
-    .contact-details a {
-      color: var(--gradient1);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .footer {
-      background: var(--dark);
+    body.dark .dark-toggle {
+      background: #333;
       color: white;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
       padding: 30px 0;
-      margin-top: 60px;
-      border-radius: 12px 12px 0 0;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-    }
-    .small-text {
-      font-size: 0.8rem;
-      opacity: .85;
-    }
-    @media (max-width: 1024px) {
-      .hero h1 { font-size: 2.4rem; }
-    }
-    @media (max-width: 860px) {
-      .section-inner { flex-direction: column; }
-      .hero-content { flex-direction: column-reverse; }
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-container">
-      <div class="logo">
-        <span class="logo-mark">🤖</span>
-        <span class="logo-text">AI Tools Hub</span>
-      </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#guides">Guides</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact" class="btn-small">Contact</a>
-      </div>
-      <div class="mobile-toggle" onclick="toggleMenu()">☰</div>
-    </div>
-  </nav>
+  <div class="dark-toggle" onclick="toggleDark()">🌙 Toggle</div>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content container">
-      <div class="text">
-        <h1>AI Tools Hub</h1>
-        <p>Your shortcut to learning and earning with AI — fast, smart & practical.</p>
-        <div class="actions">
-          <a href="#guides" class="btn">Get Started</a>
-          <a href="#resources" class="btn-outline">Free Resources</a>
-        </div>
-      </div>
-      <div class="hero-image">
-  <img src="IMG_0636.jpeg" alt="AI Tools Hub Banner" loading="lazy" />
-</div>
-    </div>
+  <header>
+    <h1>AI Tools Hub</h1>
+    <p>Your shortcut to learning and earning with AI — fast, smart & practical.</p>
   </header>
 
-  <!-- About -->
-  <section id="about" class="section container">
-    <div class="section-inner">
-      <div class="section-text">
-        <h2>About AI Tools Hub</h2>
-        <p>We simplify the power of AI so beginners and hustlers can start earning online today. Find curated tools, step-by-step guides, and real actionable ideas—all in one place.</p>
-      </div>
-      <div class="section-stats">
-        <div class="stat">
-          <strong>3+</strong>
-          <span>Core Guides</span>
-        </div>
-        <div class="stat">
-          <strong>10+</strong>
-          <span>Recommended Tools</span>
-        </div>
-        <div class="stat">
-          <strong>$0</strong>
-          <span>Start-up Cost</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main class="container">
 
-  <!-- Guides -->
-  <section id="guides" class="section container">
-    <h2 class="section-title">Popular Guides</h2>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-header">
+    <section class="glass-section fade-in">
+      <h2 class="section-title">Popular Guides</h2>
+      <div class="card-grid">
+        <div class="card">
           <span class="tag">Freelancing</span>
+          <h3>Start Freelancing with AI</h3>
+          <p>Step-by-step process to use AI tools to deliver services and get paid online even as a beginner.</p>
         </div>
-        <h3>Start Freelancing with AI</h3>
-        <p>Step-by-step process to use AI tools to deliver services and get paid online even as a beginner.</p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-      <div class="card">
-        <div class="card-header">
+        <div class="card">
           <span class="tag">Tools</span>
+          <h3>Top Free AI Tools (2025)</h3>
+          <p>Discover the best no-cost AI platforms and how to use them to create value or content fast.</p>
         </div>
-        <h3>Top Free AI Tools (2025)</h3>
-        <p>Discover the best no-cost AI platforms and how to use them to create value or content fast.</p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-      <div class="card">
-        <div class="card-header">
+        <div class="card">
           <span class="tag">Affiliate</span>
-        </div>
-        <h3>Affiliate Marketing with AI</h3>
-        <p>Use AI to promote tools, generate content, and build income funnels without heavy investment.</p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resources -->
-  <section id="resources" class="section container">
-    <h2 class="section-title">Key Resources</h2>
-    <div class="resource-list">
-      <div class="resource">
-        <h4>ChatGPT</h4>
-        <p>Content generation, idea brainstorming, SEO titles, and scripts.</p>
-      </div>
-      <div class="resource">
-        <h4>AI Image Generators</h4>
-        <p>Create banners, logos, thumbnails using tools like Leonardo AI.</p>
-      </div>
-      <div class="resource">
-        <h4>SEO Planning</h4>
-        <p>Find keywords and write optimized articles to drive traffic.</p>
-      </div>
-      <div class="resource">
-        <h4>Affiliate Networks</h4>
-        <p>Monetize recommendations with referral/affiliate links.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section container">
-    <div class="contact-box">
-      <div class="contact-text">
-        <h2>Get In Touch</h2>
-        <p>Have questions or want to collaborate? Reach out and let's build something valuable together.</p>
-      </div>
-      <div class="contact-details">
-        <p>Email: <a href="mailto:battlecheema001@gmail.com">battlecheema001@email.com</a></p>
-        <p>WhatsApp: <a href="https://wa.me/923006668739" target="_blank">Chat Now</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="brand">
-          <span class="logo-mark">🤖</span> AI Tools Hub
-        </div>
-        <div class="small-text">
-          © 2025 AI Tools Hub. All rights reserved.
+          <h3>Affiliate Marketing with AI</h3>
+          <p>Use AI to promote tools, generate content, and build income funnels without heavy investment.</p>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="glass-section fade-in">
+      <h2 class="section-title">Free Resources</h2>
+      <div class="card-grid">
+        <div class="card">
+          <span class="tag">SEO</span>
+          <h3>Keyword Planner</h3>
+          <p>Find keywords and write optimized articles to drive traffic.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Design</span>
+          <h3>AI Image Tools</h3>
+          <p>Create banners, thumbnails and product images using AI platforms.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Automation</span>
+          <h3>Task Automation</h3>
+          <p>Automate routine online tasks to save time and scale income.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 AI Tools Hub. All rights reserved.
   </footer>
 
   <script>
-    function toggleMenu() {
-      const links = document.querySelector('.nav-links');
-      links.classList.toggle('active');
+    // Dark mode toggle
+    function toggleDark() {
+      document.body.classList.toggle('dark');
     }
+
+    // Scroll animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
